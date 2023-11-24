@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Bean;
 
 public class FeignFuturesConfig {
     @Bean
-    public RequestInterceptor requestInterceptorFutures(SignatureService signatureService) {
-        return new FeignInterceptor(ApiConstants.FUTURES_API_KEY, ApiConstants.FUTURES_SECRET_KEY, signatureService);
+    public RequestInterceptor requestInterceptorFutures(SignatureService signatureService, AppProperties props) {
+        return new FeignInterceptor(props.getFuturesApiKey(), props.getFuturesSecretKey(), signatureService);
     }
 }

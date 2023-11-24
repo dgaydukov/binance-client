@@ -4,6 +4,7 @@ import com.example.binance.feign.BinanceFuturesClient;
 import com.example.binance.feign.BinanceSpotClient;
 import com.example.binance.models.SpotAccount;
 import com.example.binance.models.enums.OrderSide;
+import com.example.binance.models.enums.OrderTimeInForce;
 import com.example.binance.models.enums.OrderType;
 import com.example.binance.models.request.BinanceRequest;
 import com.example.binance.models.SpotBalance;
@@ -55,11 +56,10 @@ public class SpotService {
         SpotNewOrderRequest req = new SpotNewOrderRequest();
         req.setSymbol("BTCUSDT");
         req.setSide(OrderSide.SELL);
-        req.setType(OrderType.MARKET);
-        //req.setTimeInForce(OrderTimeInForce.GTC);
-        //req.setPrice(new BigDecimal("30000"));
+        req.setType(OrderType.LIMIT);
+        req.setTimeInForce(OrderTimeInForce.GTC);
+        req.setPrice(new BigDecimal("30000"));
         req.setQuantity(new BigDecimal("0.01"));
-        //req.setQuoteOrderQty(new BigDecimal("1000"));
         return binanceSpotClient.createNewOrder(req);
     }
 

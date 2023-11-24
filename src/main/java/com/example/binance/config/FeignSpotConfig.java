@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Bean;
 
 public class FeignSpotConfig {
     @Bean
-    public RequestInterceptor requestInterceptorSpot(SignatureService signatureService) {
-        return new FeignInterceptor(ApiConstants.SPOT_API_KEY, ApiConstants.SPOT_SECRET_KEY, signatureService);
+    public RequestInterceptor requestInterceptorSpot(SignatureService signatureService, AppProperties props) {
+        return new FeignInterceptor(props.getSpotApiKey(), props.getSpotSecretKey(), signatureService);
     }
 }

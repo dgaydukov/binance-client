@@ -1,6 +1,5 @@
 package com.example.binance.controllers;
 
-import com.example.binance.config.AppProperties;
 import com.example.binance.services.FuturesService;
 import com.example.binance.services.SpotService;
 import jakarta.annotation.PostConstruct;
@@ -12,13 +11,10 @@ import org.springframework.web.bind.annotation.RestController;
 public class FuturesController {
     private final FuturesService futuresService;
     private final SpotService spotService;
-    private final AppProperties props;
 
     @PostConstruct
     public void test(){
-        System.out.println(props);
-//        System.out.println(futuresService.getBalance("USDT"));
-//        System.out.println(spotService.getBalance("USDT"));
-        //System.out.println(spotService.createNewSubAccount("test1"));
+        System.out.println(futuresService.getBalance("USDT"));
+        System.out.println(spotService.getBalance("USDT"));
     }
 }
