@@ -1,0 +1,5 @@
+app:
+  spot_api_key: ${SPOT_API_KEY}
+  spot_secret_key: ${SPOT_SECRET_KEY}
+  futures_api_key: ${FUTURES_API_KEY}
+  futures_secret_key: ${FUTURES_SECRET_KEY}
