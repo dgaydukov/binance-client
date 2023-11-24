@@ -12,7 +12,7 @@ import org.springframework.cloud.openfeign.SpringQueryMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-@FeignClient(name = "spot", contextId = "spot", url = ApiConstants.SPOT_BASE_URL, configuration = FeignSpotConfig.class)
+@FeignClient(name = "spot", contextId = "spot", url = "${app.spot_base_url}", configuration = FeignSpotConfig.class)
 public interface BinanceSpotClient {
     @RequestMapping(method = RequestMethod.GET, value = "/api/v3/account", consumes = "application/json")
     SpotAccount getAccount(@SpringQueryMap BinanceRequest req);

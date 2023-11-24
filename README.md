@@ -1,9 +1,14 @@
 # Binance java client
 
 ### Content
+* [Binance docs](#binance-docs)
 * [Why to create binance client](#why-to-create-binance-client)
 * [Project description](#project-description)
 * [Environment variables](#environment-variables)
+
+### Binance docs
+* [binance spot](https://binance-docs.github.io/apidocs/spot/en/#general-info)
+* [binance futures](https://binance-docs.github.io/apidocs/futures/en/#general-info)
 
 ### Why to create binance client
 If you look into [binance API docs](https://binance-docs.github.io/apidocs/futures/en/#general-info) you will notice the following disclaimer 
@@ -19,11 +24,12 @@ This is not end-to-end library to work with binance spot & futures API. Yet it m
 Here I just use wrapper [feign client](https://github.com/dgaydukov/binance-client/tree/main/src/main/java/com/example/binance/feign) on top of raw binance API, and have ready-to-use integration out-of-the-box. I've implemented a few basic API endpoints, but you can add as many as you want. This project is a backbone with auth layer, and you can easily extend it by adding API endpoints you want to call.
 
 ### Environment variables
-To run the project you need to add env variables
-You need to provide 2 sets of API keys for SPOT & FUTURES
+To run the project you need to add following env variables. In the example below I use `binance testnet`:
 ```
-SPOT_API_KEY=xxx;
-SPOT_SECRET_KEY=xxx;
-FUTURES_API_KEY=xxx;
-FUTURES_SECRET_KEY=xxx;
+SPOT_BASE_URL=https://testnet.binance.vision;
+SPOT_API_KEY={you API key for spot};
+SPOT_SECRET_KEY={you secret key for spot};
+FUTURES_BASE_URL=https://testnet.binancefuture.com;
+FUTURES_API_KEY={you API key for futures};
+FUTURES_SECRET_KEY={you secret key for futures};
 ```
